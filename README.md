@@ -1,4 +1,4 @@
-# GmailGSheetsPythonScripts
+# Gmail-GSheets Python Scripts
 This repository contains python scripts to perform Gmail and Google Sheets operations.
 
 ## Getting Started
