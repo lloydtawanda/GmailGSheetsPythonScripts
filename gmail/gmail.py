@@ -21,9 +21,9 @@ from email.mime.text import MIMEText
 
 __version__ = "2.0" 
 
-CREDENTIALS_FILE = 'datawizard_credentials.json'
+CREDENTIALS_FILE = 'credentials.json'
 SCOPES = ['https://www.googleapis.com/auth/gmail.send']
-EMAIL_FROM = 'thelab@shoprite.co.za'
+EMAIL_FROM = ''
 EMAIL_SUBJECT = 'Sales Query Results Attachment'
 EMAIL_CONTENT = \
 """
@@ -107,7 +107,7 @@ def send_message(service, user_id, message):
 def fetch_results(request_data):  
     try:
         response = client.invoke(
-        FunctionName='bi_sales_datawizard_fetch_query_results',
+        FunctionName='',
         InvocationType='RequestResponse',
         LogType='Tail',
         Payload=json.dumps(request_data)

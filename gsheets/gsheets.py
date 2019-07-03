@@ -7,11 +7,11 @@ from google.oauth2 import service_account
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 
 # The ID and range of a sample spreadsheet.
-SAMPLE_SPREADSHEET_ID = '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms'
+SAMPLE_SPREADSHEET_ID = ''
 SAMPLE_RANGE_NAME = 'Class Data!A2:E'
 
-CREDENTIALS_FILE = 'datawizard_credentials.json'
-SUBJECT = 'thelab@shoprite.co.za'
+CREDENTIALS_FILE = 'credentials.json'
+SUBJECT = 'test@gmail.co.za'
 
 
 def main():
