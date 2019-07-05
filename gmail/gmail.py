@@ -1,5 +1,4 @@
 from __future__ import print_function
-import pickle
 import os.path
 import mimetypes
 import base64
@@ -7,6 +6,8 @@ import boto3
 import time
 import csv
 import json
+import argparse
+import sys
 
 from datetime import datetime as dt
 from dateutil.parser import parse
@@ -235,7 +236,48 @@ def lambda_handler(event, context):
         send_message(service, user_id='me', message=email_attachment)
     
     return status
-    
 
+if __name__ == "__main__":
+    # set arguments
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--action", help="Gmail action to take i.e. Send, Read, Draft or Delete")
+    parser.add_argument("--from-addr", help="Source Gmail address")
+    parser.add_argument("--to-addr", help="Destination email address")
+    parser.add_argument("--credentials", help="Google API Auth Credetials file")
+    parser.add_argument("--email-subject", help="The email subject or heading")
+    parser.add_argument("--email-message", help="The email message or path to file with the email message")
+    parser.add_argument("--attachment", help="Text document to be sent with the email")
+    args = parser.parse_args()
+    
+    # mandatory arguments
+    if not args.action:
+        print("Please enter a valid i.e. SEND, READ, DRAFT or DELETE ( --action argument )")
+        sys.exit(1)
+    if not args.from_addr:
+        print("Please enter a valid Gmail address ( --from-addr argument )")
+        sys.exit(1)
+    if not args.to_addr:
+        print("Please enter a valid email address ( --to-addr argument )")
+        sys.exit(1)
+    if not args.credentials:
+        print("Please enter a valid path to Google API Auth Credentials ( --credentials argument )")
+        sys.exit(1)
+        
+    # optional arguments
+    if not args.email_subject:
+        has_email_subject = True
+    else:
+        has_email_subject = False
+    if not args.email_message:
+        has_email_message = True
+    else:
+        has_email_message = False
+    if not args.attachment:
+        has_attachment = True
+    else:
+        has_attachment = False
+        
+    
+        
 
 
