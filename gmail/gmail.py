@@ -265,17 +265,17 @@ if __name__ == "__main__":
         
     # optional arguments
     if not args.email_subject:
-        has_email_subject = True
-    else:
         has_email_subject = False
+    else:
+        has_email_subject = True
     if not args.email_message:
-        has_email_message = True
-    else:
         has_email_message = False
-    if not args.attachment:
-        has_attachment = True
     else:
+        has_email_message = True
+    if not args.attachment:
         has_attachment = False
+    else:
+        has_attachment = True
         
     
         
